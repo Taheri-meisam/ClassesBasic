@@ -96,33 +96,40 @@ int main() {
 
 
 
-//class Person {
-//public:
-//    Person() {
-//        std::cout << "Default constructor" << std::endl;
-//    }
-//    Person(int a) {
-//        std::cout << a << std::endl;
-//    }
-//    ~Person() {
-//        
-//    }
-//}p;
-//
-//Person p1;
-//Person p2;
-//Person* p4ptr1 = new Person;
-//Person* p4ptr2 = new Person;
-//int main() {
-//    Person* p4ptr3 = new Person(10);
-//    // free the memory 
-//    delete(p4ptr1);
-//    delete(p4ptr2);
-//    delete(p4ptr3);
-//    return 0;
-//}
+class Person {
+public:
+    int count;
+    Person() {
+        std::cout << "Default constructor" << std::endl;
+    }
+    Person(int a) {
+        std::cout << a << std::endl;
+    }
+    ~Person() {
+        
+    }
+}p;
 
-
+Person p1;
+Person p2;
+Person* p4ptr1 = new Person;
+Person* p4ptr2 = new Person;
 int main() {
+    Person* p4ptr3 = new Person(10);
+    // another way of creating object with pointer 
 
- }
+    Person* p4ptr4 = nullptr;
+    p4ptr4 = new Person;
+    
+    // free the memory 
+    delete(p4ptr1);
+    delete(p4ptr2);
+    delete(p4ptr3);
+    delete(p4ptr4);
+    return 0;
+}
+
+//
+//int main() {
+//
+// }
