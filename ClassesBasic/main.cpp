@@ -95,41 +95,89 @@ int main() {
 */
 
 
-
-class Person {
-public:
-    int count;
-    Person() {
-        std::cout << "Default constructor" << std::endl;
-    }
-    Person(int a) {
-        std::cout << a << std::endl;
-    }
-    ~Person() {
-        
-    }
-}p;
-
-Person p1;
-Person p2;
-Person* p4ptr1 = new Person;
-Person* p4ptr2 = new Person;
-int main() {
-    Person* p4ptr3 = new Person(10);
-    // another way of creating object with pointer 
-
-    Person* p4ptr4 = nullptr;
-    p4ptr4 = new Person;
-    
-    // free the memory 
-    delete(p4ptr1);
-    delete(p4ptr2);
-    delete(p4ptr3);
-    delete(p4ptr4);
-    return 0;
-}
-
 //
+//class Person {
+//public:
+//    int count{};
+//    Person() {
+//        std::cout << "Default constructor" << std::endl;
+//    }
+//    Person(int a) {
+//        std::cout << a << std::endl;
+//    }
+//    ~Person() {
+//        
+//    }
+//}p;
+//
+//Person p1;
+//Person p2;
+//Person* p4ptr1 = new Person;
+//Person* p4ptr2 = new Person;
 //int main() {
+//    Person* p4ptr3 = new Person(10);
+//    // another way of creating object with pointer 
 //
-// }
+//    Person* p4ptr4 = nullptr;
+//    p4ptr4 = new Person;
+//    std::cout << p4ptr4->count;
+//    // free the memory 
+//    delete(p4ptr1);
+//    delete(p4ptr2);
+//    delete(p4ptr3);
+//    delete(p4ptr4);
+//    return 0;
+//}
+
+
+class Player {
+public:
+    Player() {
+        health = 100;
+        points = 0;
+    }
+    std::string name;
+    bool isDead() {
+        if (health < 1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    int retHP() {
+        return health;
+    }
+    void setHP(int hp) {
+        health += hp;
+    }
+    void setPoint(int point) {
+        points += point;
+    }
+    int retPoint() {
+        return points;
+    }
+private:
+    int health;
+    int points;
+};
+
+
+
+int main() {
+
+    Player* player = new Player();
+    Player* enemy = new Player();
+    Player* boss = new Player();
+
+    if (!player->isDead()) {
+        std::cout << "Player is dead " << std::endl;
+        player->setHP(-10);
+    }
+    std::cout << player->retHP();
+
+    delete(player);
+    delete(enemy);
+    delete(boss);
+
+ }
