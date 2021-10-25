@@ -133,7 +133,7 @@ int main() {
 class Player {
 public:
     Player() {
-        health = 100;
+        health =100;
         points = 0;
     }
     std::string name;
@@ -158,8 +158,8 @@ public:
         return points;
     }
 private:
-    int health;
-    int points;
+    int health{100};
+    int points{};
 };
 
 
