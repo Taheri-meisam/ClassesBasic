@@ -132,9 +132,17 @@ int main() {
 
 class Player {
 public:
-    Player() {
-        health =100;
-        points = 0;
+    Player() : health{ 100 }, points{ 0 }, playercount{ 0 } { // pre initializing list of the variables 
+       /* health = 100;
+        this->points = 0;*/
+        ++playercount;
+    }
+    Player(int hp, int pt) : health{ hp }, points{ pt }
+    {
+
+    }
+    ~Player() {
+        --playercount;
     }
     std::string name;
     bool isDead() {
@@ -160,22 +168,26 @@ public:
 private:
     int health{100};
     int points{};
+    int playercount;
 };
 
 
 
 int main() {
-
+  
     Player* player = new Player();
-    Player* enemy = new Player();
+    Player* enemy = new Player(50,30);
     Player* boss = new Player();
 
     if (!player->isDead()) {
-        std::cout << "Player is dead " << std::endl;
+        std::cout << "Player is not dead " << std::endl;
         player->setHP(-10);
     }
-    std::cout << player->retHP();
-
+    else {
+        std::cout << "Player is dead " << std::endl;
+    }
+    std::cout <<"\n Player HP " <<player->retHP();
+    std::cout << "\n Enemy HP " << enemy->retHP();
     delete(player);
     delete(enemy);
     delete(boss);
