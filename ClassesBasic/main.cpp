@@ -129,67 +129,102 @@ int main() {
 //    return 0;
 //}
 
+//
+//class Player {
+//public:
+//    Player() : health{ 100 }, points{ 0 }, playercount{ 0 } { // pre initializing list of the variables 
+//       /* health = 100;
+//        this->points = 0;*/
+//        ++playercount;
+//    }
+//    Player(int hp, int pt) : health{ hp }, points{ pt }
+//    {
+//
+//    }
+//    ~Player() {
+//        --playercount;
+//    }
+//    std::string name;
+//    bool isDead() {
+//        if (health < 1) {
+//            return true;
+//        }
+//        else {
+//            return false;
+//        }
+//    }
+//    int retHP() {
+//        return health;
+//    }
+//    void setHP(int hp) {
+//        health += hp;
+//    }
+//    void setPoint(int point) {
+//        points += point;
+//    }
+//    int retPoint() {
+//        return points;
+//    }
+//private:
+//    int health{100};
+//    int points{};
+//    int playercount;
+//};
+//
+//
+//
+//int main() {
+//  
+//    Player* player = new Player();
+//    Player* enemy = new Player(50,30);
+//    Player* boss = new Player();
+//
+//    if (!player->isDead()) {
+//        std::cout << "Player is not dead " << std::endl;
+//        player->setHP(-10);
+//    }
+//    else {
+//        std::cout << "Player is dead " << std::endl;
+//    }
+//    std::cout <<"\n Player HP " <<player->retHP();
+//    std::cout << "\n Enemy HP " << enemy->retHP();
+//    delete(player);
+//    delete(enemy);
+//    delete(boss);
+//
+// }
 
-class Player {
+
+
+
+
+class VecClass {
 public:
-    Player() : health{ 100 }, points{ 0 }, playercount{ 0 } { // pre initializing list of the variables 
-       /* health = 100;
-        this->points = 0;*/
-        ++playercount;
-    }
-    Player(int hp, int pt) : health{ hp }, points{ pt }
+    VecClass() : number{ 0 }
     {
 
     }
-    ~Player() {
-        --playercount;
-    }
-    std::string name;
-    bool isDead() {
-        if (health < 1) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    int retHP() {
-        return health;
-    }
-    void setHP(int hp) {
-        health += hp;
-    }
-    void setPoint(int point) {
-        points += point;
-    }
-    int retPoint() {
-        return points;
-    }
-private:
-    int health{100};
-    int points{};
-    int playercount;
+    int number;
+
+
 };
 
-
+std::vector<VecClass> vec;
+std::vector<VecClass*> vecPtr;
 
 int main() {
-  
-    Player* player = new Player();
-    Player* enemy = new Player(50,30);
-    Player* boss = new Player();
 
-    if (!player->isDead()) {
-        std::cout << "Player is not dead " << std::endl;
-        player->setHP(-10);
-    }
-    else {
-        std::cout << "Player is dead " << std::endl;
-    }
-    std::cout <<"\n Player HP " <<player->retHP();
-    std::cout << "\n Enemy HP " << enemy->retHP();
-    delete(player);
-    delete(enemy);
-    delete(boss);
+    VecClass tempObj;
+    do {
+        std::cout << "Enter a number : ";
+        std::cin >> tempObj.number;
+        if (tempObj.number == 0)
+            break;
+        vec.push_back(tempObj);
+    } while (true);
 
- }
+    for (int i = 0; i < vec.size(); i++) {
+        std::cout << vec[i].number << " ";
+    }
+    return 0;
+}
